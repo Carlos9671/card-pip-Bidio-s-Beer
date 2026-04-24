@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="navegacao">
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <h1 class="logo">Bidio's Beer Cardápio</h1>
+
+        <nav>
+            <a href="inicio.html">Início</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="carrinho.html">Carrinho</a>
+            <a href="garçom.html">Contato</a>
+        </nav>
+
+        <button class="btn_logout">Sair</button>
+    </header>
+
+    <!-- CONTEÚDO -->
+    <main class="produtos_container">
+
+        <aside class="sidebar">
+            <h2>Filtros</h2>
+            <div class="filtrosnome">
+                <button class="filtro" data-filtro="Bebidas">Bebidas</button>
+                <button class="filtro" data-filtro="Comidas">Comidas</button>
+                <button class="filtro" data-filtro="Kids">Kids</button>
+                <button class="filtro" data-filtro="Sobremesas">Sobremesas</button>
+            </div>
+        </aside>
+
+        <h2 class="nossosprodutos">Nossos Produtos</h2>
+
+        <div class="grid_produtos">
+
+            <div class="card_produto" data-categoria="Bebidas">
+                <img src="assets\copoIPA.png" alt="asdwad">
+                <h3>IPA Premium da Casa • 500ml</h3>
+                <p>A escolha perfeita para quem gosta de sabor 
+                forte e presença do primeiro ao ultimo gole.</p>
+                <span class="preco">R$ 15,00</span>
+                <button>Comprar</button>
+            </div>
+
+            <div class="card_produto" data-categoria="Bebidas">
+                <img src="assets/copoPILSEN.png" alt="">
+                <h3>Pilsen Premium da Casa • 500ml</h3>
+                <p>Leve, refrescante e sempre no ponto certo: 500ml da clássica preferida para qualquer momento.</p>
+                <span class="preco">R$ 15,00</span>
+                <button>Comprar</button>
+            </div>
+
+            <div class="card_produto" data-categoria="Comidas">
+                <img src="assets\picanha.png" alt="asdwad">
+                <h3>Picanha • 500g</h3>
+                <p>A melhor carne na melhor qualidade para nosso melhor cliente, você!</p>
+                <span class="preco">R$ 50,00</span>
+                <button>Comprar</button>
+            </div>
+
+            <div class="card_produto" data-categoria="Comidas">
+                <img src="assets/porção.png" alt="">
+                <h3>porção • 500g</h3>
+                <p>aquela sensação de comer um pouco de cada coisa, essa escolha será a ideal!</p>
+                <span class="preco">R$ 40,00</span>
+                <button>Comprar</button>
+            </div>
+
+        </div>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

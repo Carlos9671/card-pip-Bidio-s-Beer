@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+    <div class="modal" id="modal-pagar">
+        <div class="modal-conteudo">
+            <h2>Obrigado pela presença! 🍺</h2>
+            <p>Um garçom já virá até você para realizar o pagamento.</p>
+            <button id="fechar-modal-pagar">Fechar</button>
+        </div>
+    </div>
+<body>
+    <!-- MODAL -->
+    <div class="modal" id="modal-compra">
+        <div class="modal-conteudo">
+            <h2>Obrigado pela compra! 🍺</h2>
+            <p>Estaremos trazendo seus produtos conforme ficarem prontos. Caso queira comprar mais, basta pedir novamente!</p>
+            <button id="fechar-modal">Fechar</button>
+        </div>
+    </div>
+
+  
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <h1 class="logo">Bidio's Beer Cardápio</h1>
+        <nav>
+            <a href="inicio.html">Início</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="carrinho.html">Carrinho</a>
+            <a href="garçom.html">Contato</a>
+        </nav>
+        <button class="btn_logout">Sair</button>
+    </header>
+
+    <main class="produtos_container">
+
+        <aside class="sidebar">
+            <h2>Resumo</h2>
+            <div class="valores"></div>
+
+            <!-- total do pedido atual — some após comprar -->
+            <div class="total">
+                <span>Total do pedido:</span>
+                <span class="total-valor">R$ 0,00</span>
+            </div>
+
+            <button class="btn-comprar-carrinho" id="btn-comprar">Comprar</button>
+
+            <!-- valor acumulado — persiste entre páginas -->
+            <p class="valor-pagar" style="display:none">
+                Valor a pagar: <span class="valor-pagar-total"></span>
+            </p>
+
+            <button class="btn-pagar-carrinho" id="btn-pagar">Pagar</button>
+        </aside>
+
+        <div class="conteudo-carrinho">
+            <h2 class="nossosprodutos">Seu Carrinho</h2>
+            <div class="lista-carrinho grid_produtos"></div>
+        </div>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

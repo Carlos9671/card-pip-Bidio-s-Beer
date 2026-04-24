@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Cadastro</title>    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="login">
+    <div class="container" id="container">
+        <form class="form_login ativo" id="login">
+            <h1>login</h1>   
+            <div class="botoes_sociais">
+                <a><img src="https://cdn.simpleicons.org/google" alt="Google" width="30"></a>
+                <a><img src="https://cdn.simpleicons.org/facebook" alt="Facebook" width="30"></a>
+            </div>        
+            <h3>Seu email:</h3>
+            <input type="email" name="email" placeholder="xxxxxxxxx@gmail.com">
+            <h3>Sua senha:</h3>
+            <input type="password" name="senha" placeholder="xxxxxxxxx">
+            <a class="senha" href="#">Esqueceu sua senha?</a> <br><br>
+            <div class="botoes_form">
+                <button type="submit" style="width: 100px; height: 35px;">Entrar</button>
+                <button id="botao_cadastro" type="button" style="width: 100px; height: 35px;">Não tenho conta</button>
+            </div>
+        </form>
+
+        <form class="form_cadastro" id="cadastro">
+            <h1 class="registre-se">Registre-se</h1>
+            <h3>Seu nome completo</h3>
+            <input type="text" name="nome" placeholder="xxxxxxxxx">
+            <h3>Seu email:</h3>
+            <input type="email" name="email" placeholder="xxxxxxxxx@gmail.com">
+            <h3>Sua senha:</h3>
+            <input type="password" name="senha" placeholder="xxxxxxxxx">
+            <h3>Confirme sua senha</h3>
+            <input type="password" name="senha_novamente" placeholder="xxxxxxxxx">
+            <div class="botoes_form">    
+                <button type="submit" style="width: 100px; height: 35px;">Registrar</button>
+                <button id="botao_login" type="button" style="width: 100px; height: 35px;">já tenho conta</button>
+            </div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
