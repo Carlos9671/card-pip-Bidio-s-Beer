@@ -366,7 +366,7 @@ h2 {
     display: flex;
     flex-wrap: wrap;
     gap: 50px;
-    margin-left: 15%;
+    margin-left:calc(15% + 35px);
 }
 
 /* card de produtos */
@@ -375,16 +375,12 @@ h2 {
     padding: 20px;
     width: 280px;
     border-radius: var(--radius-md);
-
     background: var(--card-bg);
     border: 1px solid var(--card-border);
-
     backdrop-filter: blur(16px);
-
     display: flex;
     flex-direction: column;
     gap: 10px;
-
     transition: 0.3s;
 }
 
@@ -417,6 +413,7 @@ h2 {
     height: 55px;
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -451,7 +448,7 @@ h2 {
 
 /* Sobrescreve a regra global do h2 com especificidade maior */
 .nossosprodutos {
-    margin-left: calc(15% + 24px); /* largura da sidebar + um respiro */
+    margin-left: calc(15% + 40px); /* largura da sidebar + um respiro */
     margin-bottom: 24px;
     color: var(--text-primary);    /* se quiser mudar a cor também */
 }
@@ -469,17 +466,18 @@ h2 {
     height: 100%;
     width: 15%;
     padding: 24px 16px;
+    align-items: center;
     
 }
 
-.sidebar h2{
-    margin-left: 15%;
+.sidebar h2 {
+    padding-bottom: 20px;
 }
+
 
 .filtrosnome {
     display: flex;
     flex-direction: column;
-    margin-left: 15%;
     border-radius: var(--radius-sm);
     gap: 25px;
     color: var(--text-primary);
@@ -576,6 +574,8 @@ h2 {
 }
 
 .conteudo-carrinho {
+    margin-left: calc(15%);
+    padding-top: 20px;
     flex: 1;
 }
 
@@ -619,6 +619,10 @@ h2 {
     font-size: 1.1rem;
 }
 
+.conteudo-carrinho .grid_produtos {
+    margin-left: 0;
+}
+
 /* pop up */
 
 .modal {
@@ -657,4 +661,32 @@ h2 {
     color: var(--text-muted);
     font-size: 0.9rem;
     line-height: 1.6;
+}
+.preco-item {
+    color: var(--accent);
+    font-weight: bold;
+}
+
+/* pop up carrinho */
+
+.toast {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    color: var(--text-primary);
+    padding: 14px 24px;
+    border-radius: var(--radius-sm);
+    backdrop-filter: blur(16px);
+    font-size: 0.9rem;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toast.ativo {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
 }

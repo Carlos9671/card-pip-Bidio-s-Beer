@@ -31,7 +31,8 @@ filtros.forEach(function(botao) {
         const categoriaSelecionada = botao.getAttribute('data-filtro');
         if (titulo) titulo.textContent = botao.textContent;
         cards.forEach(function(card) {
-            if (card.getAttribute('data-categoria') === categoriaSelecionada) {
+            const categorias = card.getAttribute('data-categoria');
+            if (categorias && categorias.includes(categoriaSelecionada)) {
                 card.style.display = 'flex';
             } else {
                 card.style.display = 'none';
@@ -50,15 +51,20 @@ links.forEach(link => {
 });
 
 /* Produtos */
+/* Produtos */
 const botoesComprar = document.querySelectorAll('.card_produto button');
 
+function mostrarToast(mensagem) {
+    const toast = document.getElementById('toast');
+    toast.textContent = mensagem;
+    toast.classList.add('ativo');
+
+    setTimeout(function() {
+        toast.classList.remove('ativo');
+    }, 2500);
+}
+
 if (botoesComprar.length > 0) {
-    const fecharModal = document.getElementById('fechar-modal');
-    if (fecharModal) {
-        fecharModal.addEventListener('click', function() {
-            document.getElementById('modal-compra').classList.remove('ativo');
-        });
-    }
     botoesComprar.forEach(function(botao) {
         botao.addEventListener('click', function() {
             const card = botao.closest('.card_produto');
@@ -70,7 +76,9 @@ if (botoesComprar.length > 0) {
             const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
             carrinho.push(produto);
             localStorage.setItem('carrinho', JSON.stringify(carrinho));
-           document.getElementById('modal-compra').classList.add('ativo');
+
+            // substitui o alert pelo toast
+            mostrarToast('🍺 ' + produto.nome + ' adicionado ao carrinho!');
         });
     });
 }
