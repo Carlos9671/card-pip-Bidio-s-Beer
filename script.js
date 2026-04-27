@@ -164,7 +164,7 @@ if (listaCarrinho) {
         // recarrega automaticamente após 2 segundos
         setTimeout(function() {
             location.reload();
-        }, 10000);
+        }, 2000);
     });
 }
 
