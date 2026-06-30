@@ -5,15 +5,15 @@ const botaoCadastro = document.querySelector('#botao_cadastro')
 const botaoLogin = document.querySelector('#botao_login')
 
 if (botaoCadastro && botaoLogin) {
-    botaoCadastro.addEventListener('click', function() {
+    botaoCadastro.addEventListener('click', function () {
         formLogin.classList.remove('ativo')
         formCadastro.classList.add('ativo')
     })
-    botaoLogin.addEventListener('click', function() {
+    botaoLogin.addEventListener('click', function () {
         formCadastro.classList.remove('ativo')
         formLogin.classList.add('ativo')
     })
-    document.querySelector('.form_login').addEventListener('submit', function(e) {
+    document.querySelector('.form_login').addEventListener('submit', function (e) {
         e.preventDefault()
         window.location.href = "inicio.html"
     })
@@ -24,13 +24,13 @@ const filtros = document.querySelectorAll('.filtro');
 const cards = document.querySelectorAll('.card_produto');
 const titulo = document.querySelector('.nossosprodutos');
 
-filtros.forEach(function(botao) {
-    botao.addEventListener('click', function() {
-        filtros.forEach(function(b) { b.classList.remove('ativo'); });
+filtros.forEach(function (botao) {
+    botao.addEventListener('click', function () {
+        filtros.forEach(function (b) { b.classList.remove('ativo'); });
         botao.classList.add('ativo');
         const categoriaSelecionada = botao.getAttribute('data-filtro');
         if (titulo) titulo.textContent = botao.textContent;
-        cards.forEach(function(card) {
+        cards.forEach(function (card) {
             const categorias = card.getAttribute('data-categoria');
             if (categorias && categorias.includes(categoriaSelecionada)) {
                 card.style.display = 'flex';
@@ -59,14 +59,14 @@ function mostrarToast(mensagem) {
     toast.textContent = mensagem;
     toast.classList.add('ativo');
 
-    setTimeout(function() {
+    setTimeout(function () {
         toast.classList.remove('ativo');
     }, 2500);
 }
 
 if (botoesComprar.length > 0) {
-    botoesComprar.forEach(function(botao) {
-        botao.addEventListener('click', function() {
+    botoesComprar.forEach(function (botao) {
+        botao.addEventListener('click', function () {
             const card = botao.closest('.card_produto');
             const produto = {
                 nome: card.querySelector('h3').textContent,
@@ -102,7 +102,7 @@ if (listaCarrinho) {
         if (carrinho.length === 0) {
             listaCarrinho.innerHTML = '<p style="color: var(--text-muted)">Seu carrinho está vazio.</p>';
         } else {
-            carrinho.forEach(function(produto, index) {
+            carrinho.forEach(function (produto, index) {
                 listaCarrinho.innerHTML += `
                     <div class="card_produto">
                         <img src="${produto.imagem}" alt="${produto.nome}">
@@ -125,8 +125,8 @@ if (listaCarrinho) {
             document.querySelector('.total-valor').textContent =
                 'R$ ' + total.toFixed(2).replace('.', ',');
 
-            document.querySelectorAll('.btn-remover').forEach(function(botao) {
-                botao.addEventListener('click', function() {
+            document.querySelectorAll('.btn-remover').forEach(function (botao) {
+                botao.addEventListener('click', function () {
                     const index = parseInt(botao.getAttribute('data-index'));
                     carrinho.splice(index, 1);
                     localStorage.setItem('carrinho', JSON.stringify(carrinho));
@@ -147,31 +147,31 @@ if (listaCarrinho) {
 
     // botão comprar
     if (btnComprar) {
-    btnComprar.addEventListener('click', function() {
-        if (carrinho.length === 0) return;
+        btnComprar.addEventListener('click', function () {
+            if (carrinho.length === 0) return;
 
-        const valorAcumulado = parseFloat(
-            (localStorage.getItem('valorPagar') || '0').replace('R$', '').replace(',', '.').trim()
-        );
-        const novoTotal = valorAcumulado + total;
-        localStorage.setItem('valorPagar', 'R$ ' + novoTotal.toFixed(2).replace('.', ','));
+            const valorAcumulado = parseFloat(
+                (localStorage.getItem('valorPagar') || '0').replace('R$', '').replace(',', '.').trim()
+            );
+            const novoTotal = valorAcumulado + total;
+            localStorage.setItem('valorPagar', 'R$ ' + novoTotal.toFixed(2).replace('.', ','));
 
-        carrinho = [];
-        localStorage.removeItem('carrinho');
-        renderizarCarrinho();
-        document.getElementById('modal-compra').classList.add('ativo');
+            carrinho = [];
+            localStorage.removeItem('carrinho');
+            renderizarCarrinho();
+            document.getElementById('modal-compra').classList.add('ativo');
 
-        // recarrega automaticamente após 2 segundos
-        setTimeout(function() {
-            location.reload();
-        }, 2000);
-    });
-}
+            // recarrega automaticamente após 2 segundos
+            setTimeout(function () {
+                location.reload();
+            }, 2000);
+        });
+    }
 
     // fechar modal
     const fecharModal = document.getElementById('fechar-modal');
     if (fecharModal) {
-        fecharModal.addEventListener('click', function() {
+        fecharModal.addEventListener('click', function () {
             document.getElementById('modal-compra').classList.remove('ativo');
         });
     }
@@ -179,7 +179,7 @@ if (listaCarrinho) {
     // Botão pagar
     const btnPagar = document.getElementById('btn-pagar');
     if (btnPagar) {
-        btnPagar.addEventListener('click', function() {
+        btnPagar.addEventListener('click', function () {
             // zera o valor a pagar
             localStorage.removeItem('valorPagar');
             valorPagarTotal.textContent = '';
@@ -193,7 +193,7 @@ if (listaCarrinho) {
     // fechar modal pagar
     const fecharModalPagar = document.getElementById('fechar-modal-pagar');
     if (fecharModalPagar) {
-        fecharModalPagar.addEventListener('click', function() {
+        fecharModalPagar.addEventListener('click', function () {
             document.getElementById('modal-pagar').classList.remove('ativo');
         });
     }
